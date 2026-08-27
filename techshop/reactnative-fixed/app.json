@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "name": "TechShop",
+    "slug": "techshop-android-fixed",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "backgroundColor": "#1a1442"
+    },
+    "android": {
+      "package": "com.techshop.android"
+    }
+  }
+}
