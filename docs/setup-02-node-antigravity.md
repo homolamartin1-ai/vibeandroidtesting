@@ -17,8 +17,9 @@ If it prints v18+ you're done. Otherwise install it:
 
 ## Antigravity (the agentic IDE)
 
-Antigravity is the AI IDE we drive the agent from throughout the course. Download it from
-**antigravity.ai** and sign in. It runs on Windows, macOS, and Linux.
+Antigravity is Google's AI IDE we drive the agent from throughout the course. Download it from
+the **official Google website — antigravity.google** — and sign in. It runs on Windows, macOS,
+and Linux.
 
 > As of 2026 Antigravity may have a short waitlist depending on when you watch this. If you are
 > waitlisted, follow the demos and come back to the hands-on parts once your access is
