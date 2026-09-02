@@ -12,20 +12,35 @@ Add the **scoped** server: **`@mobilenext/mobile-mcp`**.
 > `@mobilenext/mobile-mcp` is the maintained one and drives the Android emulator (and iOS
 > Simulator) via the standard device bridges.
 
-## Step 2 — Add it to Antigravity's MCP config
+## Step 2 — Let the Antigravity agent add it for you
 
-Open Antigravity's MCP settings and add the server (see `snippets/mobile-mcp-config.json` for
-the exact block):
-```json
-{
-  "mcpServers": {
-    "mobile": {
-      "command": "npx",
-      "args": ["-y", "@mobilenext/mobile-mcp@latest"]
-    }
-  }
-}
+This is a *vibe* course — so instead of hand-editing config files, let the agent set up the MCP
+server. Paste this prompt into the Antigravity chat (it is **Prompt 3** from
+`prompts/section-03-setup.md`):
+
 ```
+Set up the mobile MCP server in Antigravity IDE so you can drive the Android emulator.
+1. Find (or create) Antigravity IDE's MCP config file and show me the path.
+2. Add this EXACT server entry, alongside my other servers (do not touch the others).
+   Use the SCOPED package @mobilenext/mobile-mcp — NOT the unscoped "mobile-mcp",
+   which is a broken stub:
+
+     "mobile": {
+       "command": "npx",
+       "args": ["-y", "@mobilenext/mobile-mcp@latest"]
+     }
+
+3. Tell me if I need to reload/restart Antigravity IDE, then verify by taking a screenshot
+   of the running emulator and describing what you see.
+```
+
+The agent locates the config file, adds the entry **without disturbing your other servers**, and
+tells you when to reload. It bakes in the scoped-package rule from Step 1, so you cannot
+accidentally pull the broken stub.
+
+> Prefer to edit it by hand instead? The exact JSON block is in
+> [`snippets/mobile-mcp-config.json`](../snippets/mobile-mcp-config.json) — open Antigravity's
+> MCP settings and paste it under `mcpServers`.
 
 ## Step 3 — Restart and verify
 
