@@ -61,8 +61,24 @@ course: **`bundletool.jar`** (only for Android App Bundles / `.aab`) and **`gst-
 
 ## Step 4 — Python client (for the suite you build in Section 9)
 
-The Appium suite is Python + pytest. Confirm Python 3 is present (`python3 --version`); you'll
-`pip install Appium-Python-Client pytest` when you scaffold the suite in Section 9.
+The Appium suite is Python + pytest. Confirm Python 3 is present:
+```bash
+python3 --version
+```
+
+> **On macOS, `pip` is usually not on PATH — use `pip3` or `python3 -m pip`.**
+> `zsh: command not found: pip` just means the plain `pip` alias is missing, not that pip is
+> absent.
+
+You install the client when you scaffold the suite in Section 9. **Recommended: use a virtual
+environment** so the dependencies stay isolated and `pip`/`pytest` work directly:
+```bash
+python3 -m venv .venv
+source .venv/bin/activate            # Windows: .venv\Scripts\activate
+pip install Appium-Python-Client pytest
+```
+Without a venv, install with `python3 -m pip install Appium-Python-Client pytest` and run tests
+with `python3 -m pytest`.
 
 **✅ Check:** `appium` starts a server, `uiautomator2` is installed, and the doctor passes.
 
