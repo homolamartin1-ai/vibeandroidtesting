@@ -29,8 +29,10 @@ export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$PATH"
 setx ANDROID_HOME "$env:LOCALAPPDATA\Android\Sdk"
 setx PATH "$env:PATH;$env:LOCALAPPDATA\Android\Sdk\platform-tools;$env:LOCALAPPDATA\Android\Sdk\emulator"
 ```
-Reopen the terminal, then verify:
+**Save the file, then reload your shell** — the terminal you already have open will not pick up
+the change until you do (`source ~/.zshrc`, or open a new terminal tab/window). Then verify:
 ```bash
+source ~/.zshrc      # macOS default shell is zsh
 adb --version
 ```
 
@@ -46,6 +48,21 @@ emulator -list-avds
 emulator -avd Pixel_7_API_34        # or launch it from Device Manager
 adb devices                          # should list  emulator-5554   device
 ```
+
+> **⚠️ `zsh: command not found: emulator` (or `adb`)?** The SDK is installed but not on your
+> PATH yet. Add these lines to `~/.zshrc` (macOS) — this is the same PATH setup from Step 2, and
+> it is the single most common snag:
+> ```bash
+> export ANDROID_HOME="$HOME/Library/Android/sdk"
+> export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$PATH"
+> ```
+> Then **reload your shell** — the terminal you already have open will not see the change until
+> you do:
+> ```bash
+> source ~/.zshrc          # or just open a new terminal tab/window
+> ```
+> Confirm the SDK is really there first: `ls ~/Library/Android/sdk/platform-tools/adb`.
+> (Linux: `ANDROID_HOME="$HOME/Android/Sdk"`. Windows: use the `setx` commands from Step 2.)
 
 **✅ Check:** `adb devices` shows a running emulator, and you can see the Android home screen.
 
