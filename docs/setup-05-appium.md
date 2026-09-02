@@ -63,8 +63,15 @@ course: **`bundletool.jar`** (only for Android App Bundles / `.aab`) and **`gst-
 
 The Appium suite is Python + pytest. Confirm Python 3 is present:
 ```bash
-python3 --version
+python3 --version        # want 3.9 or newer
 ```
+
+**Don't have Python 3?** Install it, then reopen your terminal:
+- **macOS:** `brew install python` (or download from python.org). macOS ships an older
+  system `python3`; a fresh install gives you a newer one.
+- **Windows:** `winget install Python.Python.3.12` (or download from python.org — on the
+  installer, **tick "Add python.exe to PATH"**).
+- **Linux (Debian/Ubuntu):** `sudo apt update && sudo apt install -y python3 python3-pip python3-venv`
 
 > **On macOS, `pip` is usually not on PATH — use `pip3` or `python3 -m pip`.**
 > `zsh: command not found: pip` just means the plain `pip` alias is missing, not that pip is
